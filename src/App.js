@@ -1,25 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import ReactImageZoom from 'react-image-zoom';
 
 function App() {
+  const props = {
+    width: 400,
+    height: 250,
+    //zoomWidth: 500,  esta propiedad no es necesaria si la propiedad scale es definida
+    zoomLensStyle:'opacity: 0.4;background-color: gray;',
+    zoomPosition:'bottom',
+    scale:1, // esto refiere a que tan grande va a hacer el zoom con la imagen original, 1 el mismo tamanno, 2 = el doble de grande
+    offset: { // esta propiedad ayuda a posicionar correctamente el zoom
+      vertical: 10, 
+      horizontal: -370
+    },
+    img: require('./1.jpg')}
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <ReactImageZoom {...props} />
   );
 }
 
